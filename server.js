@@ -16,4 +16,8 @@ app.get("/",function(req,res){
   res.render(__dirname + "/client/index.ejs");
 });
 
+app.post("/",function(req,res){
+  res.render(__dirname + "/client/index.ejs");
+});
+
 app.listen(8080);
