@@ -2,19 +2,9 @@
           <div class="widget">
             <h3 class="widgettitle">Genres</h3>
             <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Comedy</a></li>
-              <li><a href="#">Family</a></li>
-              <li><a href="#">History</a></li>
-              <li><a href="#">Mystery</a></li>
-              <li><a href="#">Sci-Fi</a></li>
-              <li><a href="#">War</a></li>
-              <li><a href="#">Western</a></li>
-              <li><a href="#">Adventure</a></li>
-              <li><a href="#">Crime</a></li>
-              <li><a href="#">Fantasy</a></li>
-              <li><a href="#">Horror</a></li>
-              <li><a href="#">Thriller</a></li>
+              <% for(var i =0; i < tags.length;i++){ %>
+                <li><a href="#"><%=tags[i].tag%></a></li>
+              <%}%> 
             </ul>
           </div>
           <div class="widget">
