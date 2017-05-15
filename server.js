@@ -1,7 +1,3 @@
-
-var path = require('path');
-
-
 var express = require('express');
 var mainPageController = require(__dirname + "/controllers/mainPageController");
 
@@ -15,7 +11,6 @@ app.set("template engine","ejs");
 //static files
 app.use(express.static(__dirname +'/public'));
 
-//app.use(express.static(path.resolve(__dirname, 'client')));
 
 mainPageController(app);
 
