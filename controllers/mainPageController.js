@@ -21,4 +21,16 @@ module.exports = function(app){
     		res.render("index.ejs", {tags:data});
   		}).sort({popularity:-1});
 	});
+
+	app.get("/uploadPage",function(req,res){
+  		tagModel.find({},function(err,data){
+    		if(err) throw err;
+    		res.render("uploadPage.ejs", {tags:data});
+  		}).sort({popularity:-1});
+	})
+
+	app.post("/uploadPage",function(req,res){
+		console.log("Aq var ehe");
+	});
+
 };
