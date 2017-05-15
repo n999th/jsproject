@@ -30,7 +30,6 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 app.get("/",function(req,res){
   tagModel.find({},function(err,data){
     if(err) throw err;
-    console.log("data is: " + data);
     res.render(__dirname + "/client/index.ejs", {tags:data});
   }).sort({popularity:-1});
 });
