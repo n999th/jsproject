@@ -29,8 +29,16 @@ $(document).ready(function(){
  		$('#tag-list > li').each(function(i){
    			tags.push(($(this)).text()); 
 		});
-		console.log(tags);
-		console.log(text);
+		$.ajax({
+        type: 'POST',
+        url: '/uploadPage/',
+        data:{text:text,tagList:tags},
+        success: function(data){
+          //do something with the data via front-end framework
+          location.reload();
+        }
+    });
+
  })
 });
 
