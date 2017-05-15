@@ -1,17 +1,13 @@
 $(document).ready(function(){
 
- $('form').on('submit', function(){
-
-      var item = $('form input');
-      $.ajax({
-        type: 'POST',
-        url: '/uploadPage',
-        success: function(data){
-          //do something with the data via front-end framework
-          location.reload();
-        }
-      });
+ $('#add-id').on('click', function(){
+  
+      var item = $('.form-control').find("option:selected").text();
+      console.log("item is : " + item);
+      
       return false;
 	});
 
 });
+
+

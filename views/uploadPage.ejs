@@ -4,9 +4,11 @@
 <head>
 <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" href="/assets/css/colorbox.css" type="text/css" media="all">
-<script	src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <script src ='/assets/js/uploadPageJs.js'></script>
 <style type="text/css">
 	textArea{
@@ -56,18 +58,31 @@
 	        <!-- sidebar -->
 	        <% include partials/sidebar.ejs %>
 
-	        <form class = "submit-class">
-	        	<div>
-		        	<textarea placeholder="Fill me"></textarea>
-		        </div>
-		        <input type="text" name="tag" style="position: absolute;top:94%;left:43%">
-		        <div class='myBtns' style="left: 67%">
-			        <button>Submit</button>
-		        </div>
-			</form>
+	        
+        	<div>
+	        	<textarea placeholder="Fill me"></textarea>
+	        </div>
+	        
+
+	        <div class="dropdown" style="top:94%; position: absolute;left: 43%">
+			  	<select class="form-control">				  
+	            	<% for(var i =0; i < tags.length;i++){ %>
+	                	<option> <%=tags[i].tag%></option>
+	               <%}%> 
+            	  
+
+				</select>
+			</div>
+
+
+
+	        <div class='myBtns' style="left: 67%">
+		        <button id = "submit-id">Submit</button>
+	        </div>
+			
 			<div class = 'myBtns'>
-				<button>Add Tag</button>
-			    <button>Remove Last Tag</button>
+				<button id = "add-id">Add Tag</button>
+			  <!--  <button>Remove Last Tag</button> -->
 			</div>
 	        <!-- end of sidebar -->
 	        <div class="cl">&nbsp;</div>
