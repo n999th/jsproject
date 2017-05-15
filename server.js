@@ -3,36 +3,21 @@ var path = require('path');
 
 
 var express = require('express');
+var mainPageController = require(__dirname + "/controllers/mainPageController");
 
 
-var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-
-//connect to database
-mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
-
-//create schema for the database
-var dbSchema = new mongoose.Schema({
-  tag:String,
-  popularity:Number
-});
-
-//set up database model
-var tagModel = mongoose.model('tags',dbSchema);
 
 
 var app = express();
 
 app.set("template engine","ejs");
 
-app.use(express.static(path.resolve(__dirname, 'client')));
+//static files
+app.use(express.static(__dirname +'/public'));
 
-app.get("/",function(req,res){
-  tagModel.find({},function(err,data){
-    if(err) throw err;
-    res.render(__dirname + "/client/index.ejs", {tags:data});
-  }).sort({popularity:-1});
-});
+//app.use(express.static(path.resolve(__dirname, 'client')));
+
+mainPageController(app);
 
 
 
