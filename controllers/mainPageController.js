@@ -5,14 +5,19 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 
 //create schema for the database
-var dbSchema = new mongoose.Schema({
+var tagsSchema = new mongoose.Schema({
   tag:String,
   popularity:Number
 });
 
-//set up database model
-var tagModel = mongoose.model('tags',dbSchema);
+var textsSchema = new mongoose.Schema({
+  text:String,
+  tags:Array
+});
 
+//set up database model
+var tagModel = mongoose.model('tags',tagsSchema);
+var textModel = mongoose.model('texts',textsSchema);
 
 //set up body parser module
 var bodyParser = require('body-parser');
@@ -39,5 +44,8 @@ module.exports = function(app){
 		var text = req.body.text;
 		var tags = req.body["tagList[]"];
 		//TODO add in database for current user
+    textModel({text,tags}).save(function(err,data){
+      
+    });
 	});
 };
