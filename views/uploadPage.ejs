@@ -4,27 +4,58 @@
 <head>
 <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" href="/assets/css/colorbox.css" type="text/css" media="all">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 
 
 <script src ='/assets/js/uploadPageJs.js'></script>
 <style type="text/css">
 	textArea{
-	    height:500px; 
-	    position: absolute;
-	    top: 20%;
-	    left: 40%;
-	    width: 400px;
-	    resize:none;
-	    display: inline-block;
+	   -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+    	box-sizing: border-box;
+    	height: 70%;
+
+    	width: 100%;
 	}
 	.myBtns{
 		top:94%;
 		left:55%;
-		position:absolute;
+
 	}
+
+	/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
 
 </style>
 
@@ -32,37 +63,11 @@
 
 
 <body>
-	
-	<!-- wrapper -->
-	<div id="wrapper" class="container-fluid">
-	  <div class="light-bg">
-	    <!-- shell -->
-	    <div class="shell">
-	      <!-- header -->
-	      <div class="header">
-	        <!-- socials -->
-	        <div class="socials"> <a href="#" class="facebook-ico">facebook-ico</a> <a href="#" class="twitter-ico">twitter-ico</a> <a href="#" class="you-tube-ico">you-tube-ico</a> </div>
-	        <!-- end of socials -->
-	        <h1 id="logo"><a href="#">CheatSheet</a></h1>
-	        <!-- navigation -->
-	        <% include partials/navbar.ejs %>
-	        <!-- end of navigation -->
-	        <div class="cl">&nbsp;</div>
-	      </div>
-	      <!-- end of header -->
-	      <!-- main -->
-	      <div class="main">
-	        
-	      
-
-	        <!-- sidebar -->
-	        <% include partials/sidebar.ejs %>
-
-	        
-        	<div>
+	<div class='content-box-small' style="top:10%" >
+			<div>
 	        	<textarea placeholder="Fill me" id = "textarea-id"></textarea>
 	        	<div style="float:right; color: white">
-	        	<ul id = "tag-list">
+	        	<ul id = "tag-list" style="color:black">
 
 	        	</ul>
 
@@ -70,7 +75,14 @@
 	        </div>
 	        
 
-	        <div class="dropdown" style="top:94%; position: absolute;left: 43%">
+
+
+
+			
+
+			<div class="section group">
+	<div class="col span_1_of_3">
+	        <div class="dropdown" style="top:70%; left: 2%">
 			  	<select class="form-control">				  
 	            	<% for(var i =0; i < tags.length;i++){ %>
 	                	<option> <%=tags[i].tag%></option>
@@ -79,35 +91,19 @@
 
 				</select>
 			</div>
-
-
-
-	        <div class='myBtns' style="left: 67%">
-		        <button id = "submit-id">Submit</button>
-	        </div>
-			
+	
+	</div>
+	<div class="col span_1_of_3">
 			<div class = 'myBtns'>
 				<button id = "add-id">Add Tag</button>
 			</div>
-	        <!-- end of sidebar -->
-	        <div class="cl">&nbsp;</div>
-	      </div>
-
-	      <!-- end of main -->
-	      <div class="footer">
-	        <nav class="footer-nav">
-	          <ul>
-	            <li><a href="#">Show All</a></li>
-	            <li><a href="#">Latest Movies</a></li>
-	            <li><a href="#">Top Rated</a></li>
-	            <li><a href="/uploadPage">Upload</a></li>
-	          </ul>
-	        </nav>
-	      </div>
-	    </div>
-	    <!-- end of shell -->
-
-	  </div>
+	</div>
+	<div class="col span_1_of_3">
+	        <div class='myBtns' style="left: 67%">
+		        <button id = "submit-id">Submit</button>
+	        </div>
+	</div>
+</div>
 
 	</div>
 </body>

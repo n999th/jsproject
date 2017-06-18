@@ -247,6 +247,16 @@ h3 {
     margin-bottom: 30px;
 }
 
+.content-box-small {
+    height: 320px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 5%;
+    margin-bottom: 30px;
+}
+
+
 /*pageing*/
 
 .pagination {

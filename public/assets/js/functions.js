@@ -1,3 +1,4 @@
+/*
 $(function() {
 	$('.sidebar .widget ul li:first-child').addClass('first');
 	$('#navigation ul li:first-child').addClass('first');
@@ -10,8 +11,17 @@ $(function() {
 		}
 	})
 });
-
+*/
 $(document).ready(function(){
+
+  $("#uploadid").on('click',function(){
+    $("#content-box-id").empty();
+    $.get("uploadPage").done(function(data){
+      console.log("aqane var");
+      $("#content-box-id").html("&nbsp;"+data);
+    });
+  });
+
 
  $('form').on('submit', function(){
 

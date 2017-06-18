@@ -26,6 +26,11 @@
         width: 92%;
         padding: 0;
     }
+    .content-box-small{
+        margin: 0 4%;
+        width: 50%;
+        padding: 0;
+    }
     
     .responive-text-align {
         text-align: center;
@@ -116,6 +121,10 @@
     .content-box {
         margin: 2%;
         width: 96%;
+    }
+    .content-box-small{
+        margin: 2%;
+        width: 50%;
     }
     section { padding: 25px 0; }
     .contact-form {width: 100%; }
