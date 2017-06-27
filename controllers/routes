@@ -17,12 +17,13 @@ module.exports = function(app){
 	})
 
 	app.post("/uploadPage/",urlEncodedParser,function(req,res){
-		var text = req.body.text;
-		var tags = req.body["tagList[]"];
-		//TODO add in database for current user
-    textModel({text,tags}).save(function(err,data){
-      
-    });
+			var text = req.body.text;
+			var tags = req.body["tagList[]"];
+			//TODO add in database for current user
+	    textModel({text,tags}).save(function(err,data){
+	      
+	    });
+	
 	});
 
 }
