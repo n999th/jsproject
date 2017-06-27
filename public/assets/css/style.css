@@ -307,6 +307,53 @@ footer {
     transition: color 0.2s;
 }
 
+
+    textArea{
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 70%;
+
+        width: 100%;
+    }
+    .myBtns{
+        top:94%;
+        left: 67%
+    }
+
+    /*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+    .col {  margin: 1% 0 1% 0%; }
+    .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
+
 .footer-nav li a:hover,
 .footer-nav li a:active {
     color: #ddd;
@@ -324,6 +371,13 @@ footer {
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
+
+
+.dropdown{
+    top:70%;
+    left: 2%;
+}
+
 
 .ion-social-facebook:hover {
     color: #3b5998;

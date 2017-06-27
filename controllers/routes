@@ -1,0 +1,32 @@
+
+
+module.exports = function(app){
+	app.get("/",function(req,res){
+  		tagModel.find({},function(err,data){
+    		if(err) throw err;
+    		res.render("index.ejs", {tags:data});
+  		}).sort({popularity:-1});
+	});
+
+
+	app.get("/uploadPage",function(req,res){
+  		tagModel.find({},function(err,data){
+    		if(err) throw err;
+    		res.render("uploadPage.ejs", {tags:data});
+  		}).sort({popularity:-1});
+	})
+
+	app.post("/uploadPage/",urlEncodedParser,function(req,res){
+		var text = req.body.text;
+		var tags = req.body["tagList[]"];
+		//TODO add in database for current user
+    textModel({text,tags}).save(function(err,data){
+      
+    });
+	});
+
+}
+
+
+
+
