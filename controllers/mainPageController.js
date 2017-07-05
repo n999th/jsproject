@@ -19,9 +19,6 @@ var textsSchema = new mongoose.Schema({
 var tagModel = mongoose.model('tags',tagsSchema);
 var textModel = mongoose.model('texts',textsSchema);
 
-//set up body parser module
-var bodyParser = require('body-parser');
-var urlEncodedParser = bodyParser.urlencoded({extended:false});
 
 
 module.exports = function(app){
@@ -40,7 +37,7 @@ module.exports = function(app){
   		}).sort({popularity:-1});
 	})
 
-	app.post("/uploadPage/",urlEncodedParser,function(req,res){
+	app.post("/uploadPage/",function(req,res){
 		var text = req.body.text;
 		var tags = req.body["tagList[]"];
 		//TODO add in database for current user

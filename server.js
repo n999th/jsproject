@@ -9,6 +9,11 @@ var passport = require('passport');
 var localStrategy = require('passport-local'),Strategy;
 
 var app = express();
+//set up body parser module
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("template engine","ejs");
 app.set('view engine','ejs');
@@ -28,13 +33,6 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req,res,next){
-	res.locals.success = req.flash('success_msg');
-	res.locals.error_message = req.flash('error-msg');
-	res.locals.error = req.flash('error');
-	next();
-});
-
 // In this example, the formParam value is going to get morphed into form body format useful for printing.
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -52,6 +50,16 @@ app.use(expressValidator({
     };
   }
 }));
+
+
+
+app.use(function(req,res,next){
+	res.locals.success = req.flash('success_msg');
+	res.locals.error_message = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	next();
+});
+
 
 
 var users = require('./routes/users');
