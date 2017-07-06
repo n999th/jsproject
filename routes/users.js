@@ -29,13 +29,12 @@ router.post('/register',function(req,res){
 
 	var errors = req.validationErrors();
 	if(errors){
-		console.log('error here');
 		res.render('register',{
 			err:errors
 		});
 	}else{
 		console.log('passed');
-		res.render('register',{err:undefined});
+		res.render('register');
 	}
 });
 

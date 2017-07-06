@@ -1,8 +1,11 @@
 <h1>Register</h1>
 
 <!--if errors print errors-->
-<% if (typeof err == undefined) {%>aehhaa<% } %>
+<% if (typeof err != "undefined") { %>
+<%for(var i =0; i < err.length;i++){%>
+	<div><%=err[i].msg%></div>
 
+<%} }%>
 <form method="post" action="/users/register">
    <div>
     <label>Name</label>
