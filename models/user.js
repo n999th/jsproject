@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://test:test@ds137141.mlab.com:37141/todo');
+mongoose.createConnection('mongodb://test:test@ds137141.mlab.com:37141/todo');
 var database = mongoose.connection;
 //some code from guide
 
@@ -33,4 +33,3 @@ function createUser(newUser,cb){
 	});
 }
 module.exports.createUser = createUser;
-*/
