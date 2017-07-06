@@ -17,4 +17,9 @@ input[type]{
 button[type]{
    float: left;
    width: 50%;
+   min-width: 65px;
+   font-size: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+   text-overflow: ellipsis ellipsis;
 }
