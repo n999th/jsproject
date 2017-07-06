@@ -11,6 +11,11 @@ var localStrategy = require('passport-local'),Strategy;
 var app = express();
 //set up body parser module
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+//connect to database
+mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -52,11 +57,12 @@ app.use(expressValidator({
 }));
 
 
-
+//git instructions
 app.use(function(req,res,next){
 	res.locals.success = req.flash('success_msg');
 	res.locals.error_message = req.flash('error_msg');
 	res.locals.error = req.flash('error');
+  res.locals.user = req.user || null; 
 	next();
 });
 

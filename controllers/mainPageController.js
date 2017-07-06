@@ -1,8 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-
-//connect to database
-mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 
 //create schema for the database
 var tagsSchema = new mongoose.Schema({

@@ -1,7 +1,6 @@
 var bcrypt = require('bcryptjs');
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://test:test@ds137141.mlab.com:37141/todo');
 var database = mongoose.connection;
 //some code from guide
 
@@ -32,5 +31,29 @@ function createUser(newUser,cb){
 	    });
 	});
 }
+
+
 module.exports.createUser = createUser;
-*/
+
+function getUserByUsername(username,cb){
+	var qr = {username:username};
+	User.findOne(qr,cb);
+}
+function getUserById(id,cb){
+	User.findById(id,cb);
+}
+
+function comparePassword(potentialPass,hash,cb){
+	bcrypt.compare(potentialPass, hash, function(err, res) {
+    	if(err) throw err;
+    	cb(null,res);
+	});
+}
+
+module.exports.getUserByUsername = getUserByUsername;
+module.exports.getUserById = getUserById;
+module.exports.comparePassword = comparePassword;
+
+
+
+
