@@ -8,6 +8,7 @@ var tagsSchema = new mongoose.Schema({
 
 var textsSchema = new mongoose.Schema({
   text:String,
+  username:String,
   tags:Array
 });
 
@@ -26,19 +27,31 @@ module.exports = function(app){
 	});
 
 
-	app.get("/uploadPage",function(req,res){
+	app.get("/uploadPage",authed,function(req,res){
   		tagModel.find({},function(err,data){
     		if(err) throw err;
     		res.render("uploadPage.ejs", {tags:data});
   		}).sort({popularity:-1});
 	})
 
-	app.post("/uploadPage/",function(req,res){
+	app.post("/uploadPage/",authed,function(req,res){
 		var text = req.body.text;
 		var tags = req.body["tagList[]"];
 		//TODO add in database for current user
-    textModel({text,tags}).save(function(err,data){
+    var username = req.user.username;
+    textModel({text,username,tags}).save(function(err,data){
       
     });
 	});
+
+  function authed(req,res,next){
+    if(req.isAuthenticated()){
+      return next(); 
+    }else{
+      //you are not logged in
+      res.redirect('/users/login');
+    }
+  }
+
+
 };
