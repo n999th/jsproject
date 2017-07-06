@@ -6,26 +6,32 @@
 	<div><%=err[i].msg%></div>
 
 <%} }%>
+<body>
+   <link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+</body>
 <form method="post" action="/users/register">
-   <div>
-    <label>Name</label>
-    <input type="text"  placeholder="Name" name="name">
+ <div class = "container">
+     <div>
+      <label><b>Name</b></label>
+      <input type="text"  placeholder="Name" name="name">
+    </div>
+    <div>
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Username" name="username">
+    </div>
+     <div>
+      <label><b>Email</b></label>
+      <input type="email"  placeholder="Email" name="email">
+    </div>
+    <div>
+      <label><b>Password</b></label>
+      <input type="password"  placeholder="Password" name="pass">
+    </div>
+    <div>
+      <label><b>Confirm Password</b></label>
+      <input type="password"  placeholder="Repeat Password" name="pass2">
+    </div>
+    <button type="submit"><b>Submit</b></button>
+    <button type="button"><b>Homepage</b></button>
   </div>
-  <div>
-    <label>Username</label>
-    <input type="text" placeholder="Username" name="username">
-  </div>
-   <div>
-    <label>Email</label>
-    <input type="email"  placeholder="Email" name="email">
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password"  placeholder="Password" name="pass">
-  </div>
-  <div>
-    <label>Confirm Password</label>
-    <input type="password"  placeholder="Password" name="pass2">
-  </div>
-  <button type="submit" >Submit</button>
 </form>

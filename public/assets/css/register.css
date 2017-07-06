@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+}
+.container{
+    padding: 10px;
+    border: 1px solid black;
+    display: block;
+    float:left;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+
+}
+input[type]{
+    width: 100%;
+}
+button[type]{
+   float: left;
+   width: 50%;
+}
