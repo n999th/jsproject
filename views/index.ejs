@@ -22,11 +22,11 @@
                         <li><a href="">Show All</a></li>
                         <li><a href="">Latest Uploads</a></li>
                         <li><a href="">Top Rated</a></li>
-                        <li><a id='uploadid' href="#plans">Upload</a></li>
                         <%if(!user){%>
                         <li><a href="users/register">Register</a></li>
                         <li><a href="/users/login">Login</a></li>
                         <%}else{%>
+                            <li><a href='/uploadPage' href="#plans">Upload</a></li>
                             <li><a href="/users/logout">Logout</a></li>
                         <%}%>
                     </ul>

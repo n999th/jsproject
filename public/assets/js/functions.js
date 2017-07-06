@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+/*
   $("#uploadid").on('click',function(){
     $.get("uploadPage").done(function(data){
       console.log("aqane var");
@@ -8,7 +8,7 @@ $(document).ready(function(){
       $("#content-box-id").html("&nbsp;"+data);
     });
   });
-
+*/
 
  $('form').on('submit', function(){
 
