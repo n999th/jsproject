@@ -41,12 +41,22 @@ router.post('/register',function(req,res){
 			username:username,
 			pass:pass
 		});
-		User.createUser(newuser,function(err,user){
-			if(err) throw err;
-			console.log(user);
+//checking if user exists needs refactoring
+		User.getUserByUsername(username,function(error,result){
+			if(error)throw error;
+			if(result == null){
+				User.createUser(newuser,function(err,user){
+				if(err) throw err;
+				console.log(user);
+			});
+			req.flash('success_msg','You registered');
+			res.redirect('/users/login');
+			}else{
+				console.log("User Already exists")
+			}
 		});
-		req.flash('success_msg','You registered');
-		res.redirect('/users/login');
+
+	
 	}
 });
 
