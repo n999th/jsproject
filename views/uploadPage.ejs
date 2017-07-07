@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" href="/assets/css/colorbox.css" type="text/css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
-
-
 <script src ='/assets/js/uploadPageJs.js'></script>
 
 
@@ -16,51 +13,38 @@
 
 <body>
 	<div class='content-box-small' style="top:10%" >
-			<div>
-	        	<textarea placeholder="Fill me" id = "textarea-id"></textarea>
-	        	<div style="float:right; color: white">
-	        	<ul id = "tag-list" style="color:black">
-
-	        	</ul>
-
-	        	</div>	
-	        </div>
+		<div>
+	       	<form action="fileupload" method="post" enctype="multipart/form-data">
+	       	<input type="file" name="filetoupload"><br>
+	       	<input type="submit">
+	       	<div style="float:right; color: white">
+	       	   <ul id = "tag-list" style="color:black"> </ul>
+	        </div>	
+        </div>
 	        
-
-
-
-
-			
-
-			<div class="section group">
-	<div class="col span_1_of_3">
-	        <div class="dropdown">
-			  	<select class="form-control">				  
-	            	<% for(var i =0; i < tags.length;i++){ %>
-	                	<option> <%=tags[i].tag%></option>
-	               <%}%> 
-            	  
-
-				</select>
-			</div>
-	
-	</div>
-	<div class="col span_1_of_3">
-			<div class = 'myBtns'>
-				<button id = "add-id">Add Tag</button>
-			</div>
-	</div>
-	<div class="col span_1_of_3">
-	        <div class='myBtns'>
+		<div class="section group">
+            <div class="col span_1_of_3">
+                <div class="dropdown">
+                    <select class="form-control">				  
+                        <% for(var i =0; i < tags.length;i++){ %>
+	                	  <option> <%=tags[i].tag%></option>
+                        <%}%> 
+				    </select>
+                </div>
+            </div>
+            <div class="col span_1_of_3">
+                <div class = 'myBtns'>
+                    <button id = "add-id">Add Tag</button>
+                </div>
+            </div>
+        <div class="col span_1_of_3">
+            <div class='myBtns'>
 		        <button id = "submit-id">Submit</button>
 	        </div>
-	</div>
-</div>
-
+        </div>
+        
+        </div>
 	</div>
 </body>
-
-
-
 </html>
 
