@@ -3,7 +3,7 @@
 <html lang= 'en'>
 <head>
 <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all">
-<link rel="stylesheet" href="/assets/css/colorbox.css" type="text/css" media="all">
+<link rel="stylesheet" href="/assets/css/uploadPage.css" type="text/css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src ='/assets/js/uploadPageJs.js'></script>
 
@@ -12,13 +12,12 @@
 
 
 <body>
-	<div class='content-box-small' style="top:10%" >
+	<div class='content-box-small' >
 		<div>
-	       	<form action="routes/uploadPage/fileupload" method="post" enctype="multipart/form-data">
-	       	<input type="file" name="filetoupload"><br>
-	       	<input type="submit">
-	       	<div style="float:right; color: white">
-	       	   <ul id = "tag-list" style="color:black"> </ul>
+	       	<form action="/uploadPage/fileupload" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault(); validate();">
+	       	<input type="file" name="filetoupload" accept=".pdf,.txt,.doc,.docx"><br>
+	       	<div class ="tags">
+	       	   <ul id = "tag-list" > </ul>
 	        </div>	
         </div>
 	        
@@ -42,7 +41,7 @@
 		        <button id = "submit-id">Submit</button>
 	        </div>
         </div>
-        
+        </form>
         </div>
 	</div>
 </body>
