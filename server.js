@@ -69,10 +69,10 @@ app.use(function(req,res,next){
 
 
 var users = require('./routes/users');
-
+var uploadPage = require('./routes/uploadPage');
 
 app.use('/users',users)
-
+app.use(uploadPage);
 
 mainPageController(app);
 
