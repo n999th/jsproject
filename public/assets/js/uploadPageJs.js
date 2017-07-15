@@ -48,7 +48,6 @@ function validate(){
         }
     }
     alert("Invalid file format!");
-    event.preventDefault();
     return false;
 };
 
