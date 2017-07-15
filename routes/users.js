@@ -44,12 +44,12 @@ router.post('/register',function(req,res){
 //checking if user exists needs refactoring
 		User.getUserByUsername(username,function(error,result){
 			if(error)throw error;
-			if(result == null){
+			if(result == null && !User.getUserByEmail(newuser.mail)){
 				User.createUser(newuser,function(err,user){
 				if(err) throw err;
 				console.log(user);
 			});
-			req.flash('success_msg','You registered');
+			//req.flash('success_msg','You registered');
 			res.redirect('/users/login');
 			}else{
 				console.log("User Already exists")
@@ -84,6 +84,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
+	console.log("id is: " + id);
   User.getUserById(id, function(err, user) {
     done(err, user);
   });
