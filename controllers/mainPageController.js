@@ -40,6 +40,7 @@ module.exports = function(app){
 		//TODO add in database for current user
     var username = req.user.username;
     textModel({text,username,tags}).save(function(err,data){
+      if(err)throw err;
       
     });
 	});

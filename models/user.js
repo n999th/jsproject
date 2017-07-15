@@ -42,6 +42,10 @@ function getUserByUsername(username,cb){
 function getUserById(id,cb){
 	User.findById(id,cb);
 }
+function getUserByEmail(email){
+	var qr = {email:email};
+	return User.findOne();
+}
 
 function comparePassword(potentialPass,hash,cb){
 	bcrypt.compare(potentialPass, hash, function(err, res) {
@@ -53,7 +57,7 @@ function comparePassword(potentialPass,hash,cb){
 module.exports.getUserByUsername = getUserByUsername;
 module.exports.getUserById = getUserById;
 module.exports.comparePassword = comparePassword;
-
+module.exports.getUserByEmail = getUserByEmail;
 
 
 
