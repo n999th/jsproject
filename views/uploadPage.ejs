@@ -12,7 +12,8 @@
 
 <body>
     <div class = "container"> 
-		<div>
+		<h3>Upload Your File Here</h3>
+        <div>
 	       	<form action = "/fileupload" method = "post" enctype = "multipart/form-data" onsubmit = "return validate()">
 	       	<input type = "file" id ="filetoupload" name = "filetoupload" accept = ".pdf,.txt,.doc,.docx" required class = "inputfile">
             <label for = "filetoupload" class = "uploadFileButton">Choose A File</label>
@@ -33,7 +34,7 @@
             </div>
             <div class="col span_1_of_3">
                 <div class = 'myBtns'>
-                    <button id = "add-id">Add Tag</button>
+                    <button id = "add-id" type="button">Add Tag</button>
                 </div>
             </div>
         <div class="col span_1_of_3">
