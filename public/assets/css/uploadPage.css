@@ -39,3 +39,6 @@ h3{
 input[type=text]{
     width:100%;
 }
+li:hover{
+    cursor:pointer;
+}

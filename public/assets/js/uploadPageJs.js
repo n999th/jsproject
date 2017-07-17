@@ -5,7 +5,6 @@ $(document).ready(function(){
         if (item === "")
             return;
         $('#tag-list').append('<li>' + item + '</li>');
-        console.log($('.form-control').find("option:selected"));
         $('.form-control').find("option:selected").remove();
         return false;
     });
@@ -32,31 +31,19 @@ $(document).ready(function(){
             }
         });
     })
-;( function( $, window, document, undefined )
-{
-    $( '.inputfile' ).each( function()
-    {
+;( function(){
+    $( '.inputfile' ).each( function(){
         var $input   = $( this ),
             $label   = $input.next( 'label' ),
             labelVal = $label.html();
-
-        $input.on( 'change', function( e )
-        {
+        $input.on( 'change', function( e ){
             var fileName = '';
-
-            if( this.files && this.files.length > 1 )
-                fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-            else if( e.target.value )
+            if( e.target.value )
                 fileName = e.target.value.split( '\\' ).pop();
-                $label.html( fileName );
+            $label.html( fileName );
         });
-
-        // // Firefox bug fix
-        // $input
-        // .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
-        // .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
     });
-})( jQuery, window, document );
+})();
 });
 function validate(){
     console.log("validate");
