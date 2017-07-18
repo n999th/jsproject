@@ -4,7 +4,7 @@ $(document).ready(function(){
         var item = $('.form-control').find("option:selected").text();
         if (item === "")
             return;
-        $('#tag-list').append('<li name ='+item+">" + item + '</li>');
+        $('#tag-list').append('<li name ='+item+" value = " + item +'>'+ item+ '</li>');
         $('.form-control').find("option:selected").remove();
         return false;
     });
