@@ -34,12 +34,9 @@ $(document).ready(function(){
 ;( function(){
     $( '.inputfile' ).each( function(){
         var $input   = $( this ),
-            $label   = $input.next( 'label' ),
-            labelVal = $label.html();
-        $input.on( 'change', function( e ){
-            var fileName = '';
-            if( e.target.value )
-                fileName = e.target.value.split( '\\' ).pop();
+            $label   = $input.next( 'label' );
+        $input.on( 'change', function(e){
+            fileName = e.target.value.split( '\\' ).pop();
             $label.html( fileName );
         });
     });
