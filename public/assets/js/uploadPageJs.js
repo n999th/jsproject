@@ -4,13 +4,12 @@ $(document).ready(function(){
         var item = $('.form-control').find("option:selected").text();
         if (item === "")
             return;
-        $('#tag-list').append('<li>' + item + '</li>');
+        $('#tag-list').append('<li name ='+item+">" + item + '</li>');
         $('.form-control').find("option:selected").remove();
         return false;
     });
     $(document).on('click', '#tag-list > li', function() {
         var $this = $(this);
-        console.log($this.html());
         $('.form-control').append('<option>' + $this.html() + '</option>');
         $this.remove();
     });
