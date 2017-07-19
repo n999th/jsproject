@@ -6,24 +6,23 @@ var tagsSchema = new mongoose.Schema({
   popularity:Number
 });
 
-var textsSchema = new mongoose.Schema({
-  text:String,
-  username:String,
-  tags:Array
-});
 
 //set up database model
 var tagModel = mongoose.model('tags',tagsSchema);
-var textModel = mongoose.model('texts',textsSchema);
 
 
 
 module.exports = function(app){
 	app.get("/",function(req,res){
+      if(typeof req.session.tags === 'undefined'){
   		tagModel.find({},function(err,data){
     		if(err) throw err;
+        req.session.tags = data;
     		res.render("index.ejs", {tags:data});
   		}).sort({popularity:-1});
+    }else{
+        res.render("index.ejs", {tags:req.session.tags});
+    }
 	});
 
 
@@ -34,16 +33,13 @@ module.exports = function(app){
   		}).sort({popularity:-1});
 	})
 
-	app.post("/uploadPage/",authed,function(req,res){
-		var text = req.body.text;
-		var tags = req.body["tagList[]"];
-		//TODO add in database for current user
-    var username = req.user.username;
-    textModel({text,username,tags}).save(function(err,data){
-      if(err)throw err;
-      
-    });
-	});
+	// app.post("/uploadPage/",authed,function(req,res){
+	// 	var text = req.body.text;
+	// 	var tags = req.body["tagList[]"];
+	// 	//TODO add in database for current user
+ //    var username = req.user.username;
+
+	// });
 
   function authed(req,res,next){
     if(req.isAuthenticated()){
