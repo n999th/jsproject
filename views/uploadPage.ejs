@@ -12,7 +12,7 @@
 
 <body>
     <div class = "container"> 
-		<h3>Upload Your File Here</h3>
+		<h3>Upload Your File Here(.pdf only)</h3>
         <div>
 	       	<form action = "/fileupload" method = "post" onsubmit = "return validate()">
             <div>
@@ -31,7 +31,7 @@
         </div>
 	        
 		<div class="section group">
-            <div class="col span_1_of_3">
+            <div class="col one_third">
                 <div class="dropdown">
                     <select class="form-control">				  
                         <% for(var i =0; i < tags.length;i++){ %>
@@ -40,12 +40,12 @@
 				    </select>
                 </div>
             </div>
-            <div class="col span_1_of_3">
+            <div class="col one_third">
                 <div class = 'myBtns'>
                     <button id = "add-id" type="button">Add Tag</button>
                 </div>
             </div>
-        <div class="col span_1_of_3">
+        <div class="col one_third">
             <div class='myBtns'>
 		        <button id = "submit-id">Submit</button>
 	        </div>
