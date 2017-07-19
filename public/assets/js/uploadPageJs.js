@@ -15,24 +15,6 @@ $(document).ready(function(){
         $('.form-control').append('<option>' + $this.html() + '</option>');
         $this.remove();
     });
-
-    // $('#submit-id').on('click', function (argument) {
-        
-    //     // var text = $('#textarea-id').val();
-    //     // var tags = [];
-    //     // $('#tag-list > li').each(function(i){
-    //     //     tags.push(($(this)).text()); 
-    //     // });
-    //     // $.ajax({
-    //     //     type: 'POST',
-    //     //     url: '/uploadPage/',
-    //     //     data:{text:text,tagList:tags},
-    //     //     success: function(data){
-    //     //       //do something with the data via front-end framework
-    //     //       location.reload();
-    //     //     }
-    //     // });
-    // })
 ;( function(){
     $( '.inputfile' ).each( function(){
         var $input   = $( this ),
@@ -47,7 +29,7 @@ $(document).ready(function(){
 function validate(){
     console.log("validate");
     var name = $('input[type=file]').val().split('\\').pop();
-    availableEndings = [".doc",".docx",".pdf",".txt"];
+    availableEndings = [".pdf"];
     for(const ending of availableEndings){
         if (name.endsWith(ending)){
             $('#tag-list').append('<input type="hidden" name =counter'+ " value = " + count +'>');
