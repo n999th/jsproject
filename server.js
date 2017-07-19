@@ -13,7 +13,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-
 //connect to database
 mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 

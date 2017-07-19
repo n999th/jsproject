@@ -1,10 +1,16 @@
 var mongoose = require('mongoose');
 var tagModel = require('../models/tagModel');
-
+var textModel = require('../models/textModel');
 
 
 module.exports = function(app){
 	app.get("/",function(req,res){
+      if(typeof req.session.posts ==='undefined'){
+        textModel.find({},function(err,data){
+          if(err) throw err;
+          req.session.posts = data;
+        });
+      }
       if(typeof req.session.tags === 'undefined'){
   		tagModel.find({},function(err,data){
     		if(err) throw err;
