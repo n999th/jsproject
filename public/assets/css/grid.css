@@ -20,10 +20,10 @@
 
 .col:first-child { margin-left: 0; }
 
-.span-3-of-4 {
+.three_fourths {
 	width: 74.6%; 
 }
 
-.span-1-of-4 {
-	width: 23.8%; 
+.one_fourth {
+	width: 23.8%;
 }
