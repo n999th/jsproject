@@ -2,17 +2,10 @@ var formidable = require('formidable');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var express = require('express');
+var textModel = require('../models/textModel');
 var mongoose = require('mongoose');
 
-var textsSchema = new mongoose.Schema({
-  title:String,
-  desciption:String,
-  username:String,
-  filename:String,
-  tags:Array
-});
 
-var textModel = mongoose.model('texts',textsSchema);
 
 function upload(req,res){
 	var username = req.user.username;
