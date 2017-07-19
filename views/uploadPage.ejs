@@ -14,7 +14,7 @@
     <div class = "container"> 
 		<h3>Upload Your File Here(.pdf only)</h3>
         <div>
-	       	<form action = "/fileupload" method = "post" onsubmit = "return validate()">
+	       	<form action = "/fileupload" enctype="multipart/form-data" method = "post" onsubmit = "return validate()">
             <div>
                 <label><b>Title</b></label>
                 <input type="text"  placeholder="Title" name="title">

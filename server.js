@@ -18,7 +18,7 @@ mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 
 
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 app.use(bodyParser.json());
 
