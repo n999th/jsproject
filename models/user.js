@@ -42,9 +42,12 @@ function getUserByUsername(username,cb){
 function getUserById(id,cb){
 	User.findById(id,cb);
 }
+//TO FIX
 function getUserByEmail(email){
 	var qr = {email:email};
-	return User.findOne();
+	var res = User.findOne(qr);
+	console.log(res);
+	return res;
 }
 
 function comparePassword(potentialPass,hash,cb){

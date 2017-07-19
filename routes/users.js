@@ -44,7 +44,7 @@ router.post('/register',function(req,res){
 //checking if user exists needs refactoring
 		User.getUserByUsername(username,function(error,result){
 			if(error)throw error;
-			if(result == null && !User.getUserByEmail(newuser.mail)){
+			if(result == null ){
 				User.createUser(newuser,function(err,user){
 				if(err) throw err;
 				console.log(user);

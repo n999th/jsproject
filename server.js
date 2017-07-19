@@ -17,8 +17,11 @@ mongoose.Promise = global.Promise;
 //connect to database
 mongoose.connect("mongodb://test:test@ds137141.mlab.com:37141/todo");
 
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("template engine","ejs");
 app.set('view engine','ejs');
