@@ -9,3 +9,5 @@ var textsSchema = new mongoose.Schema({
 });
 
 var textModel = mongoose.model('texts',textsSchema);
+
+module.exports = textModel;
