@@ -26,12 +26,46 @@ module.exports = function(app){
         if(err) throw err;
         req.session.posts = data;
         renderAndGetTags(res,req,data);
-      }).sort({date:-1});
+      }).sort({date:-1}).limit(3);
 	});
-//TODO
-  app.post("/loadMore",function(req,res){
+
+  app.get("/oldest",function(req,res){
+      textModel.find({},function(err,data){
+        if(err) throw err;
+        req.session.posts = data;
+        renderAndGetTags(res,req,data);
+      }).sort({date:1}).limit(3);
+  });
+
+
+  app.get("/loadNew",function(req,res){
     console.log("aqa var");
-    console.log(req.session.posts[req.session.posts.length-1]);
+    console.log("url is: " + req.url);
+    var length = req.session.posts.length-1;
+    var minDate = req.session.posts[length].date;
+    if (typeof minDate === 'undefined')
+      return;
+    textModel.find({date:{$lt:parseInt(minDate)}},function(err,postData){
+      if(err) throw err;
+      req.session.posts.push(postData);
+      res.send(postData);
+    }).sort({date : -1}).limit(3);
+  });
+
+
+
+  app.get("/loadOld",function(req,res){
+    console.log("aqa var");
+    console.log("url is: " + req.url);
+    var length = req.session.posts.length-1;
+    var minDate = req.session.posts[length].date;
+    if (typeof minDate === 'undefined')
+      return;
+    textModel.find({date:{$gt:parseInt(minDate)}},function(err,postData){
+      if(err) throw err;
+      req.session.posts.push(postData);
+      res.send(postData);
+    }).sort({date : 1}).limit(3);
   });
 
 	app.get("/uploadPage",authed,function(req,res){
