@@ -6,7 +6,8 @@ var textsSchema = new mongoose.Schema({
   desciption:String,
   username:String,
   filename:String,
-  tags:Array
+  tags:Array,
+  date:Number
 });
 
 autoIncrement.initialize(mongoose.connection);

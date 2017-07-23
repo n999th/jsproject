@@ -5,6 +5,9 @@ var fileupload = require('../controllers/fileUpload');
 router.post("/fileupload",authed,function(req,res){
 	fileupload.upload(req,res);
 });
+router.get("/fileupload",function(req,res){
+	res.redirect('/');
+});
 
 function authed(req,res,next){
 if(req.isAuthenticated()){

@@ -40,11 +40,15 @@ function upload(req,res){
 		console.log("path is: " + nPath);
 		fs.rename(oPath,nPath,function(er){
 			if(er) throw err;
-			textModel({title,desciption,username,filename	,tags}).save(function(er,data){
+			var date =  new Date().getTime();
+			textModel({title,desciption,username,filename,tags,date}).save(function(er,data){
 		  	if(er)throw er;
 		  		console.log("data saved is: " + data);
-			});	
-			res.render('index.ejs',{tags:req.session.tags});
+				var postData = req.session.posts;
+				res.redirect('/');
+			});
+			
+			
 		});
 	});
 }

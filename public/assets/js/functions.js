@@ -9,11 +9,23 @@ $(document).ready(function(){
     });
   });
 */
-
+$(window).scroll(function() {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+      alert("ariqaa");
+       $.ajax({
+          type: 'post',
+          url: '/loadMore'
+          success: function(data){
+            //do something with the data via front-end framework
+            location.reload();
+          }
+      });  
+    }
+});
  $('form').on('submit', function(){
 
       var item = $('form input');
-      console.log("Ae aq var");
+ 
 
       $.ajax({
         type: 'POST',
