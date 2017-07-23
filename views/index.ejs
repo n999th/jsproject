@@ -77,18 +77,14 @@
                 </div>
                 <div class = "space">
                     <div class="col three_fourths">
-                        <div class="box" id="jandaba">
+                        <%for(var i=0;i<Object.keys(posts).length;i++){%>
                             <div class="content-box" id="content-box-id">
-                                <div style="color: black !important">
-                                    <h1>Title</h1>
-
+                            <b><%=posts[i].title%></b>
+                                <embed src=<%="/uploads/"+posts[i].username+"/"+posts[i].filename%>  type='application/pdf'>
+                                <b>Author:<%=posts[i].username%></b> <b>Tags: <%=posts[i].tags%> </b>
                                 </div>
-                            </div>
-                            <div class="content-box" id="content-box-id">
-                                <embed src="/uploads/mike/yle.pdf" width="500" height="375" type='application/pdf'>
-
-                          
-                        </div>
+                        <%}%>
+                    </div>
                     </div>
                 </div>
             </div>
