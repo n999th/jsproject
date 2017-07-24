@@ -17,16 +17,6 @@ body {
     //teqstis chateva
     overflow-x: hidden;
 }
-//overflow without side effects
-.clearfix {zoom: 1;}
-.clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
 
 .row {
     max-width: 1140px;
@@ -102,7 +92,6 @@ h3 {
 }
 
 .logo-black { 
-    display: none;
     height: 50px;
     width: auto;
     float: left;
